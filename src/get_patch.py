@@ -9,7 +9,7 @@ v12 v13 v14 v15
 
 
 
-def get_patch(mesh):
+def get_patch(mesh) -> int:
 
     # get vertex's valence
     count = 0
@@ -56,4 +56,4 @@ def get_patch(mesh):
                 print(v12, v13, v14, v15)
                 print()
     print(count)
-    return
+    return count
