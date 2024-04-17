@@ -30,65 +30,34 @@ def add_face(mesh: om.PolyMesh, new_mesh: om.PolyMesh, v: om.VertexHandle, idx: 
 def get_extraordinary(mesh: om.PolyMesh) -> om.PolyMesh:
     new_mesh = om.PolyMesh()
 
-    """
-    v1 v2 v3
-    v4 v5 v6
-    x  x  init
-    
-    """
-
     idx = 0
-
     for v in mesh.vertices():
         val = mesh.valence(v)
         if val > 2 and val != 4 and not mesh.is_boundary(v):
             idx = add_vertex(mesh, new_mesh, v, idx)
-
-            v_verts = [i for i in mesh.vv(v)]
+            idx = add_face(mesh, new_mesh, v, idx)
 
             # for f in mesh.vf(v):
             #     mesh.set_face_property("visited", f, True)
 
-
             v_corners = [mesh.to_vertex_handle(mesh.next_halfedge_handle(mesh.find_halfedge(v, _))) for _ in mesh.vv(v)]
 
-            for corner in v_corners:
+            v_corners2 = [mesh.to_vertex_handle(mesh.next_halfedge_handle(mesh.opposite_halfedge_handle(mesh.prev_halfedge_handle(mesh.opposite_halfedge_handle(mesh.next_halfedge_handle(mesh.find_halfedge(v, _))))))) for _ in mesh.vv(v)]
+
+            v_corners3 = [mesh.from_vertex_handle(mesh.prev_halfedge_handle(mesh.opposite_halfedge_handle(mesh.next_halfedge_handle(mesh.next_halfedge_handle(mesh.find_halfedge(v, _)))))).idx() for _ in mesh.vv(v)]
+
+            # for corner in v_corners:
+            #     idx = add_vertex(mesh, new_mesh, corner, idx)
+            #     idx = add_face(mesh, new_mesh, corner, idx)
+
+            for corner in v_corners2:
                 idx = add_vertex(mesh, new_mesh, corner, idx)
+                new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
                 idx = add_face(mesh, new_mesh, corner, idx)
 
-
-
-
-
-
-
-            # for _ in v_verts:
-            #     # v -> _
-            #     edge = mesh.find_halfedge(v, _)
-            #
-            #     v1 = mesh.to_vertex_handle(edge)
-            #     mesh.set_vertex_property("id", v1, idx)
-            #     mesh.set_vertex_property("position", v1, mesh.point(v1))
-            #     new_mesh.add_vertex(mesh.point(v1));
-            #     idx += 1
-            #
-            #     v2 = mesh.to_vertex_handle(mesh.next_halfedge_handle(edge))
-            #     mesh.set_vertex_property("id", v2, idx)
-            #     mesh.set_vertex_property("position", v2, mesh.point(v2))
-            #     new_mesh.add_vertex(mesh.point(v2));
-            #     idx += 1
-            #
-            #     v3 = mesh.to_vertex_handle(mesh.next_halfedge_handle(mesh.next_halfedge_handle(edge)))
-            #     mesh.set_vertex_property("id", v3, idx)
-            #     mesh.set_vertex_property("position", v3, mesh.point(v3))
-            #     new_mesh.add_vertex(mesh.point(v3));
-            #     idx += 1
-            #
-            #     new_mesh.add_faces([[
-            #         mesh.vertex_property("id", v),
-            #         mesh.vertex_property("id", v1),
-            #         mesh.vertex_property("id", v2),
-            #         mesh.vertex_property("id", v3)
-            #     ]])
+            for corner in v_corners3:
+                idx = add_vertex(mesh, new_mesh, mesh.vertex_handle(corner), idx)
+                new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
+                idx = add_face(mesh, new_mesh, mesh.vertex_handle(corner), idx)
 
     return new_mesh

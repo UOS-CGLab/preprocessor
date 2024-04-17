@@ -1,7 +1,7 @@
 import openmesh as om
+from src.export import export_to_txt
 
-
-def generate_table(mesh: om.PolyMesh, idx: int) -> int:
+def generate_table(mesh: om.PolyMesh, idx: int, prev_idx: int,depth: int) -> int:
 
     #print("f points", idx) # get vertex idx for each face
 
@@ -22,7 +22,11 @@ def generate_table(mesh: om.PolyMesh, idx: int) -> int:
         offset += val
 
 
-    fidx = idx + mesh.faces().__len__()
+    if depth == 0:
+        fidx = mesh.vertices().__len__()
+    else:
+        fidx = idx
+        idx = 0
 
     #print("e points") # get vertex idx for each edge and get linked faces idx
 
@@ -73,18 +77,22 @@ def generate_table(mesh: om.PolyMesh, idx: int) -> int:
         v_indices.append(v.idx() + idx)
         offset += 2 * val
 
-    print("face")
-    print("f_offsets", f_offsets)
-    print("f_valences", f_valences)
-    print("f_data", f_data)
+    # print("face")
+    # print("f_offsets", f_offsets)
+    # print("f_valences", f_valences)
+    # print("f_data", f_data)
+    #
+    # print("edge")
+    # print("e_data", e_data)
+    #
+    # print("vertex")
+    # print("v_offsets", v_offsets)
+    # print("v_valences", v_valences)
+    # print("v_indices", v_indices)
+    # print("v_data", v_data)
 
-    print("edge")
-    print("e_data", e_data)
-
-    print("vertex")
-    print("v_offsets", v_offsets)
-    print("v_valences", v_valences)
-    print("v_indices", v_indices)
-    print("v_data", v_data)
+    export_to_txt(f_offsets.copy(), f_valences.copy(), f_data.copy(),
+                  e_data.copy(), v_offsets.copy(),
+                  v_valences.copy(), v_data.copy(), depth)
 
     return 0
