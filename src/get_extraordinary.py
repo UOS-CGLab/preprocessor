@@ -8,6 +8,7 @@ def add_vertex(mesh: om.PolyMesh, new_mesh: om.PolyMesh, v: om.VertexHandle, idx
         mesh.set_vertex_property("id", v, idx)
         mesh.set_vertex_property("position", v, mesh.point(v))
         new_mesh.add_vertex(mesh.point(v))
+        new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx), v.idx())
         idx += 1
     return idx
 
@@ -24,6 +25,8 @@ def add_face(mesh: om.PolyMesh, new_mesh: om.PolyMesh, v: om.VertexHandle, idx: 
             new_mesh.add_faces([[
                 mesh.vertex_property("id", face_verts) for face_verts in mesh.fv(f)
             ]])
+            # face_idx = new_mesh.faces().__len__() - 1
+            new_mesh.set_face_property("prev_idx", new_mesh.face_handle(new_mesh.faces().__len__() - 1), f.idx())
     return idx
 
 
@@ -52,12 +55,13 @@ def get_extraordinary(mesh: om.PolyMesh) -> om.PolyMesh:
 
             for corner in v_corners2:
                 idx = add_vertex(mesh, new_mesh, corner, idx)
-                new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
+                # new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
                 idx = add_face(mesh, new_mesh, corner, idx)
+                # new_mesh.set_face_property("prev_idx", )
 
             for corner in v_corners3:
                 idx = add_vertex(mesh, new_mesh, mesh.vertex_handle(corner), idx)
-                new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
+                # new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(idx - 1), idx - 2)
                 idx = add_face(mesh, new_mesh, mesh.vertex_handle(corner), idx)
 
     return new_mesh

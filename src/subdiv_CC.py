@@ -46,7 +46,7 @@ def compute_CC_edge(mesh, e):
     return p
 
 
-def subdivision(mesh: openmesh.PolyMesh, idx: int) -> (openmesh.PolyMesh, int):
+def subdivision(mesh: openmesh.PolyMesh, prev_idx: int) -> (openmesh.PolyMesh, int):
     mesh_next = openmesh.PolyMesh()
     faces = []
     edges = []
@@ -83,4 +83,4 @@ def subdivision(mesh: openmesh.PolyMesh, idx: int) -> (openmesh.PolyMesh, int):
             v3 = mesh.edge_property("id", mesh.edge_handle(mesh.next_halfedge_handle(h)))
             mesh_next.add_faces([[v0, v1, v2, v3]])
 
-    return mesh_next, idx
+    return mesh_next, idx + prev_idx
