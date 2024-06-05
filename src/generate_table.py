@@ -45,8 +45,15 @@ def generate_table(mesh: om.PolyMesh, idx: int, prev_idx: int, depth: int) -> in
         # e_data.append(f1.idx() + fidx)
         e_data.append(mesh.vertex_property("prev_idx", v0) + idx)
         e_data.append(mesh.vertex_property("prev_idx", v1) + idx)
-        e_data.append(mesh.face_property("prev_idx", f0) + fidx)
-        e_data.append(mesh.face_property("prev_idx", f1) + fidx)
+        if f0.idx() == -1:
+            e_data.append(-1)
+        else:
+            e_data.append(mesh.face_property("prev_idx", f0) + fidx)
+
+        if f1.idx() == -1:
+            e_data.append(-1)
+        else:
+            e_data.append(mesh.face_property("prev_idx", f1) + fidx)
 
     # print("v points") # get linked faces idx get linked edges other vert idx
 
@@ -78,20 +85,20 @@ def generate_table(mesh: om.PolyMesh, idx: int, prev_idx: int, depth: int) -> in
 
         v_offsets.append(offset)
         v_valences.append(val)
-        v_indices.append(v.idx() + idx)
+        v_indices.append(v.idx() + fidx)
         offset += 2 * val
 
-    print("face")
-    # print("f_offsets", f_offsets)
-    # print("f_valences", f_valences)
+    #print("face")
+    print("f_offsets", f_offsets)
+    print("f_valences", f_valences)
     print("f_data", f_data)
-    #
+
     print("edge")
     print("e_data", e_data)
-    #
+
     print("vertex")
-    # print("v_offsets", v_offsets)
-    # print("v_valences", v_valences)
+    print("v_offsets", v_offsets)
+    print("v_valences", v_valences)
     # print("v_indices", v_indices)
     print("v_data", v_data)
 
