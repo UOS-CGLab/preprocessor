@@ -2,6 +2,8 @@ from src.get_patch import get_patch
 from src.get_extraordinary import get_extraordinary3
 from src.subdiv_CC import subdivision3
 from src.subdiv_CC import subdivision_2
+from src.phrase import obj_to_json
+
 
 import openmesh as om
 
@@ -49,6 +51,13 @@ if __name__ == "__main__":
     # input_file = "mesh_files/donut3.obj"; print(input_file)
     # input_file = "mesh_files/strange2.obj"; print(input_file)
     # input_file = "mesh_files/strange.obj"; print(input_file)
+    # input_file = "mesh_files/monsterfrog.obj"; print(input_file)
+    # input_file = "mesh_files/cow-nonormals.obj"; print(input_file)
+
+    #make base.json
+    obj_to_json(input_file, "base.json")
+
+
     str_name = input_file.split("/")[-1].split(".")[0]
 
     mesh = om.read_polymesh(input_file)
@@ -83,11 +92,11 @@ if __name__ == "__main__":
         #mesh, _ = subdivision(mesh, idx)
 
 
-        if i < 4:
-            mesh, idx = subdivision3(mesh, idx, i)
-        else:
-            subdivision_2(mesh, idx, i, depth)
-            exit(0)
+        # if i < 4:
+        mesh, idx = subdivision3(mesh, idx, i)
+        # else:
+        #     subdivision_2(mesh, idx, i, depth)
+        #     exit(0)
 
 
 
@@ -97,7 +106,7 @@ if __name__ == "__main__":
         # else:
         #     # mesh, idx = subdivision2(mesh, idx, i)
         #     mesh, idx = subdivision3(mesh, i)
-        # om.write_mesh("subdiv_output_2_" + str_name + str(i) + ".obj", mesh)
+        om.write_mesh("subdiv_output_2_" + str_name + str(i) + ".obj", mesh)
 
         add_dash()
 
