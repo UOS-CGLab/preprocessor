@@ -6,6 +6,7 @@ from src.phrase import obj_to_json
 
 
 import openmesh as om
+import os
 
 
 def print_coord(mesh):
@@ -15,8 +16,8 @@ def print_coord(mesh):
             file.write(str(coord[0]) + ", " + str(coord[1]) + ", " + str(coord[2]) + "\n")
 
 
-def add_dash():
-    with open("patch.txt", "a") as file:
+def add_dash(output_dir):
+    with open(output_dir + "patch.txt", "a") as file:
         file.write("-\n")
 
 
@@ -56,10 +57,14 @@ if __name__ == "__main__":
     # input_file = "mesh_files/monsterfrog_5copies.obj"; print(input_file)
 
     #make base.json
-    obj_to_json(input_file, "base.json")
-
 
     str_name = input_file.split("/")[-1].split(".")[0]
+
+    output_dir = "output/" + str_name
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    obj_to_json(input_file, output_dir + "/base.json")
 
     mesh = om.read_polymesh(input_file)
     # print_coord(mesh)
@@ -68,62 +73,50 @@ if __name__ == "__main__":
     print("depth of subdivision: ", end="")
     depth = int(input())
 
-    remove_files()
+    # remove_files()
 
     idx = 0
 
     for i in range(depth + 1):
         print("depth: ", i)
-        get_patch(mesh, idx, i)
+        get_patch(mesh, idx, i, output_dir)
 
-        # print all vertex coordinates
-        # for v in mesh.vertices():
-        #     coord = mesh.point(v)
-        #     write_info_file(coord)
-
-        # mesh = get_extraordinary2(mesh, i)
         get_extraordinary3(mesh, i)
-        # if i == 0: print_coord(mesh)
-        # om.write_mesh("output_2_" + str_name + str(i) + ".obj", mesh)
+
+        with open(output_dir + "/extra_ordinary"+ str(i) +".txt", "w") as file:
+            for f in mesh.faces():
+                verts = []
+                for vert in mesh.fv(f):
+                    if mesh.valence(vert) != 4:
+                        continue
+                    verts.append(vert.idx() + idx)
+                if verts.__len__() <= 3:
+                    continue
+                file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
+                           + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
 
         if i == depth + 1:
             break
 
-        #idx += mesh.vertices().__len__()
-        #mesh, _ = subdivision(mesh, idx)
+        mesh, idx = subdivision3(mesh, idx, i, output_dir)
+
+        # om.write_mesh(output_dir + "/subdiv_output_" + str_name + str(i) + ".obj", mesh)
+
+        add_dash(output_dir)
 
 
-        # if i < 4:
-        mesh, idx = subdivision3(mesh, idx, i)
-        # else:
-        #     subdivision_2(mesh, idx, i, depth)
-        #     exit(0)
-
-
-
-        # if i == 0:
-        #     #mesh, idx = subdivision2(mesh, origin_verticies, i)
-        #     mesh, idx = subdivision3(mesh, i)
-        # else:
-        #     # mesh, idx = subdivision2(mesh, idx, i)
-        #     mesh, idx = subdivision3(mesh, i)
-        om.write_mesh("subdiv_output_2_" + str_name + str(i) + ".obj", mesh)
-
-        add_dash()
-
-
-    om.write_mesh("output.obj", mesh)
-    with open("extra_ordinary.txt", "w") as file:
-        for f in mesh.faces():
-            verts = []
-            for vert in mesh.fv(f):
-                if mesh.valence(vert) != 4:
-                    continue
-                verts.append(vert.idx() + idx)
-            if verts.__len__() <= 3:
-                continue
-            file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
-                       + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
+    # om.write_mesh(output_dir + "/output.obj", mesh)
+    # with open(output_dir + "/extra_ordinary.txt", "w") as file:
+    #     for f in mesh.faces():
+    #         verts = []
+    #         for vert in mesh.fv(f):
+    #             if mesh.valence(vert) != 4:
+    #                 continue
+    #             verts.append(vert.idx() + idx)
+    #         if verts.__len__() <= 3:
+    #             continue
+    #         file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
+    #                    + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
     #
     # for v in mesh.vertices():
     #     coord = mesh.point(v)

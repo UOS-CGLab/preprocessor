@@ -7,8 +7,8 @@ v12 v13 v14 v15
 """
 
 
-def write_into_file(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, idx):
-    with open("patch.txt", "a") as file:
+def write_into_file(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, idx, output_dir):
+    with open(output_dir + "/patch.txt", "a") as file:
         file.write(str(v0 + idx) + ", " + str(v1 + idx) + ", " + str(v2 + idx) + ", " + str(v3 + idx) + ", " + str(v4 + idx) + ", " + str(v5 + idx) + ", " + str(v6 + idx) + ", " + str(v7 + idx) + ", " + str(v8 + idx) + ", " + str(v9 + idx) + ", " + str(v10 + idx) + ", " + str(v11 + idx) + ", " + str(v12 + idx) + ", " + str(v13 + idx) + ", " + str(v14 + idx) + ", " + str(v15 + idx) + ",\n")
 
 
@@ -17,7 +17,7 @@ def write_into_file2(v5, v6, v9, v10, idx):
         file.write(str(v5 + idx) + ", " + str(v6 + idx) + ", " + str(v9 + idx) + ", " + str(v9 + idx) + ", " + str(v6 + idx) + ", " + str(v10 + idx) + ",\n")
 
 
-def get_patch(mesh, idx, depth) -> int:
+def get_patch(mesh, idx, depth, output_dir) -> int:
 
     # get vertex's valence
     count = 0
@@ -83,7 +83,7 @@ def get_patch(mesh, idx, depth) -> int:
 
                 mesh.set_face_property("patched", f, True)
 
-                write_into_file(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, idx)
+                write_into_file(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, idx, output_dir)
 
     # print(count)
     return count

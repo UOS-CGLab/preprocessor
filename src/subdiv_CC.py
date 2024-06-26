@@ -236,7 +236,7 @@ def subdivision2(mesh: om.PolyMesh, prev_idx: int, depth: int) -> (om.PolyMesh, 
 
 
 
-def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int) -> (om.PolyMesh, int):
+def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) -> (om.PolyMesh, int):
 
     f_offsets = []
     f_valances = []
@@ -366,7 +366,7 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int) -> (om.PolyMesh, 
             else:
                 mesh_next.set_face_property("patched", mesh_next.face_handle(mesh_next.faces().__len__() - 1), False)
 
-    to_json(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data, f_indices, f_offsets, f_valances, f_data, depth)
+    to_json(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data, f_indices, f_offsets, f_valances, f_data, depth, output_dir)
 
     return mesh_next, fidx
 

@@ -2,13 +2,13 @@ import json
 import os
 
 
-def clear_json():
-    with open("topology.json", "w") as f:
+def clear_json(output_dir):
+    with open(output_dir + "/topology.json", "w") as f:
         f.write("[]")  # 빈 배열로 초기화
 
 
-def append_to_json(data):
-    with open("topology.json", "r+") as f:
+def append_to_json(data, output_dir):
+    with open(output_dir + "/topology.json", "r+") as f:
         json_data = json.load(f)
         f.seek(0)
         if json_data:  # 기존에 데이터가 있는 경우
@@ -22,11 +22,10 @@ def append_to_json(data):
             json.dump([data], f, separators=(', ', ':'))
 
 
-
 def to_json(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data, f_indices, f_offsets, f_valances,
-            f_data, depth):
+            f_data, depth, output_dir):
     if depth == 0:
-        clear_json()
+        clear_json(output_dir)
 
     data = {
         "depth": depth,
@@ -45,14 +44,15 @@ def to_json(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data
         }
     }
 
-    append_to_json(data)
+    append_to_json(data, output_dir)
 
 
 def add_offset(array, offset):
     return [x + offset for x in array]
-def to_json2(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data, f_indices, f_offsets, f_valances,
-            f_data, depth, offest):
 
+
+def to_json2(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_data, f_indices, f_offsets, f_valances,
+             f_data, depth, offest):
     data = {
         "depth": depth,
         "data": {
@@ -71,5 +71,3 @@ def to_json2(v_indices, v_offsets, v_valances, v_index, v_data, e_indices, e_dat
     }
 
     append_to_json(data)
-
-
