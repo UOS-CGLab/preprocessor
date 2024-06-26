@@ -7,6 +7,7 @@ from src.phrase import obj_to_json
 
 import openmesh as om
 import os
+import shutil
 
 def print_coord(mesh):
     with open("mesh_cord.txt", "w") as file:
@@ -20,10 +21,8 @@ def add_dash(output_dir):
         file.write("-\n")
 
 
-def remove_files():
-    with open("coord.txt", "w") as file:
-        file.write("")
-    with open("patch.txt", "w") as file:
+def remove_files(output_dir):
+    with open(output_dir + "/patch.txt", "w") as file:
         file.write("")
     # with open("triangle.txt", "w") as file:
     #     file.write("")
@@ -63,6 +62,9 @@ if __name__ == "__main__":
     output_dir = "output/" + str_name
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+    else:
+        shutil.rmtree(output_dir)
+        os.makedirs(output_dir)
 
     obj_to_json(input_file, output_dir + "/base.json")
 
@@ -73,7 +75,7 @@ if __name__ == "__main__":
     print("depth of subdivision: ", end="")
     depth = int(input())
 
-    # remove_files()
+    remove_files(output_dir)
 
     idx = 0
 
@@ -83,14 +85,14 @@ if __name__ == "__main__":
 
         get_extraordinary3(mesh, i)
 
-        with open(output_dir + "/extra_ordinary"+ str(i) +".txt", "w") as file:
+        with open(output_dir + "/extra_ordinary" + str(i) + ".txt", "w") as file:
             for f in mesh.faces():
                 verts = []
+                var = 0
                 for vert in mesh.fv(f):
-                    if mesh.valence(vert) != 4:
-                        continue
+                    var += mesh.valence(vert)
                     verts.append(vert.idx() + idx)
-                if verts.__len__() <= 3:
+                if verts.__len__() == 16:
                     continue
                 file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
                            + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
