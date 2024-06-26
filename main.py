@@ -8,7 +8,6 @@ from src.phrase import obj_to_json
 import openmesh as om
 import os
 
-
 def print_coord(mesh):
     with open("mesh_cord.txt", "w") as file:
         for v in mesh.vertices():
@@ -43,7 +42,7 @@ if __name__ == "__main__":
     # input_file = "mesh_files/cone.obj"; print(input_file)
     # input_file = "mesh_files/untitled2.obj"; print(input_file)
     # input_file = "mesh_files/Car.obj"; print(input_file)
-    input_file = "mesh_files/suzanne.obj"; print(input_file)
+    input_file = "mesh_files/monsterfrog_5copies.obj"; print(input_file)
     # input_file = "mesh_files/shuttle.obj"; print(input_file)
     # input_file = "mesh_files/hand.obj"; print(input_file)
     # input_file = "mesh_files/dog.obj"; print(input_file)
