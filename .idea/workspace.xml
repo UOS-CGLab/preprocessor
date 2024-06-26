@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9627ee7-1d62-44ca-bacd-5432246b9e7e" name="Changes" comment="_">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coord.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patch.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/remove_txt.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subdiv_CC.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/subdiv_CC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/to_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/to_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology_lv4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology_lv5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topology_lv6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/patch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/patch.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/topology.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/topology.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,27 +41,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.get_patch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.phrase.executor&quot;: &quot;Run&quot;,
-    &quot;Python.phraze.executor&quot;: &quot;Run&quot;,
-    &quot;Python.teat.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/seobeenJang/Library/Mobile Documents/com~apple~CloudDocs/Univ./CGLab/WebGPU/implement/pythonProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.get_patch.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.phrase.executor": "Run",
+    "Python.phraze.executor": "Run",
+    "Python.teat.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/seobeenJang/Library/Mobile Documents/com~apple~CloudDocs/Univ./CGLab/WebGPU/implement/pythonProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/output/suzanne" />
@@ -154,7 +144,6 @@
         <item itemvalue="Python.phrase" />
         <item itemvalue="Python.teat" />
         <item itemvalue="Python.teat" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +221,8 @@
       <workItem from="1718186544150" duration="2770000" />
       <workItem from="1719381815005" duration="2220000" />
       <workItem from="1719384147045" duration="12000" />
-      <workItem from="1719384183620" duration="178000" />
+      <workItem from="1719384183620" duration="489000" />
+      <workItem from="1719384674425" duration="101000" />
     </task>
     <task id="LOCAL-00001" summary="_">
       <option name="closed" value="true" />
@@ -314,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719382982967</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="_">
+      <option name="closed" value="true" />
+      <created>1719384462895</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719384462895</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +383,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1719384349677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1719384756231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$phraze.coverage" NAME="phraze Coverage Results" MODIFIED="1718182949363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$teat.coverage" NAME="teat Coverage Results" MODIFIED="1708427519683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$get_patch.coverage" NAME="get_patch Coverage Results" MODIFIED="1711778362858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
