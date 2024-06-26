@@ -53,6 +53,7 @@ if __name__ == "__main__":
     # input_file = "mesh_files/strange.obj"; print(input_file)
     # input_file = "mesh_files/monsterfrog.obj"; print(input_file)
     # input_file = "mesh_files/cow-nonormals.obj"; print(input_file)
+    # input_file = "mesh_files/monsterfrog_5copies.obj"; print(input_file)
 
     #make base.json
     obj_to_json(input_file, "base.json")
@@ -111,14 +112,18 @@ if __name__ == "__main__":
         add_dash()
 
 
-    # om.write_mesh("output.obj", mesh)
-    # with open("extra_ordinary.txt", "w") as file:
-    #     for f in mesh.faces():
-    #         verts = []
-    #         for vert in mesh.fv(f):
-    #             verts.append(vert.idx() + idx)
-    #         file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
-    #                    + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
+    om.write_mesh("output.obj", mesh)
+    with open("extra_ordinary.txt", "w") as file:
+        for f in mesh.faces():
+            verts = []
+            for vert in mesh.fv(f):
+                if mesh.valence(vert) != 4:
+                    continue
+                verts.append(vert.idx() + idx)
+            if verts.__len__() <= 3:
+                continue
+            file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
+                       + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
     #
     # for v in mesh.vertices():
     #     coord = mesh.point(v)
