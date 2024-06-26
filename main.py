@@ -85,17 +85,17 @@ if __name__ == "__main__":
 
         get_extraordinary3(mesh, i)
 
-        with open(output_dir + "/extra_ordinary" + str(i) + ".txt", "w") as file:
-            for f in mesh.faces():
-                verts = []
-                var = 0
-                for vert in mesh.fv(f):
-                    var += mesh.valence(vert)
-                    verts.append(vert.idx() + idx)
-                if verts.__len__() == 16:
-                    continue
-                file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
-                           + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
+        if i != 0:
+            with open(output_dir + "/extra_ordinary" + str(i) + ".txt", "w") as file:
+                for f in mesh.faces():
+                    if mesh.face_property("patched", f) is True:
+                        continue
+                    verts = []
+                    for vert in mesh.fv(f):
+
+                        verts.append(vert.idx() + idx)
+                    file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
+                               + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
 
         if i == depth + 1:
             break
