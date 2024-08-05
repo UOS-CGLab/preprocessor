@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9627ee7-1d62-44ca-bacd-5432246b9e7e" name="Changes" comment="_">
+      <change afterPath="$PROJECT_DIR$/mesh_files/monsterfrog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/texture_coord.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/extra_ordinary8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/patch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/topology.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary8.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output/suzanne/patch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/patch.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/topology.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/suzanne/topology.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/get_extraordinary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_extraordinary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/subdiv_CC.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/subdiv_CC.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,28 +60,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.get_patch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.phrase.executor&quot;: &quot;Run&quot;,
-    &quot;Python.phraze.executor&quot;: &quot;Run&quot;,
-    &quot;Python.teat.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/seobeenJang/Library/Mobile Documents/com~apple~CloudDocs/Univ./CGLab/WebGPU/implement/pythonProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.get_patch.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.phrase.executor": "Run",
+    "Python.phraze.executor": "Run",
+    "Python.teat.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/seobeenJang/Library/Mobile Documents/com~apple~CloudDocs/Univ./CGLab/WebGPU/implement/pythonProject/mesh_files",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mesh_files" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/output/suzanne" />
       <recent name="$PROJECT_DIR$/src" />
@@ -149,17 +163,16 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.teat" />
         <item itemvalue="Python.phrase" />
-        <item itemvalue="Python.teat" />
-        <item itemvalue="Python.teat" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
-        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
+        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -232,6 +245,15 @@
       <workItem from="1719384183620" duration="489000" />
       <workItem from="1719384674425" duration="227000" />
       <workItem from="1719385606761" duration="543000" />
+      <workItem from="1720498772612" duration="3195000" />
+      <workItem from="1720597809833" duration="5808000" />
+      <workItem from="1721192238565" duration="3042000" />
+      <workItem from="1721735556105" duration="2515000" />
+      <workItem from="1721792464621" duration="3090000" />
+      <workItem from="1721815059639" duration="1102000" />
+      <workItem from="1722318041380" duration="1137000" />
+      <workItem from="1722420069556" duration="1642000" />
+      <workItem from="1722842644026" duration="11183000" />
     </task>
     <task id="LOCAL-00001" summary="_">
       <option name="closed" value="true" />
@@ -392,7 +414,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1719386773649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1722859915662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$phraze.coverage" NAME="phraze Coverage Results" MODIFIED="1718182949363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$teat.coverage" NAME="teat Coverage Results" MODIFIED="1708427519683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$get_patch.coverage" NAME="get_patch Coverage Results" MODIFIED="1711778362858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
