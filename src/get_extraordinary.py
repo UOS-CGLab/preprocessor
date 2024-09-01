@@ -42,7 +42,7 @@ def add_face3(mesh: om.PolyMesh, f: om.FaceHandle, idx: int) -> int:
             idx = add_vertex3(mesh, face_verts, idx)
     return idx
 
-def get_limit_point(mesh: om.PolyMesh, output_dir: str, depth: int) -> None:
+def get_limit_point(mesh: om.PolyMesh, output_dir: str, depth: int, idx: int) -> None:
     outputs = []
     for v in mesh.vertices():
         if mesh.valence(v) != 4:
@@ -52,13 +52,25 @@ def get_limit_point(mesh: om.PolyMesh, output_dir: str, depth: int) -> None:
                 ve = mesh.to_vertex_handle(voh)
                 vv = mesh.to_vertex_handle(mesh.next_halfedge_handle(voh))
 
-                outputs.append(find_vertex(mesh, ve))
-                outputs.append(find_vertex(mesh, vv))
+                output = []
+                output.append(ve.idx() + idx)
+                for veoh in mesh.voh(ve):
+                    output.append(mesh.to_vertex_handle(veoh).idx() + idx)
+                    output.append(mesh.to_vertex_handle(mesh.next_halfedge_handle(veoh)).idx() + idx)
+                outputs.append(output)
+
+                output = []
+                output.append(vv.idx() + idx)
+                for vvoh in mesh.voh(vv):
+                    output.append(mesh.to_vertex_handle(vvoh).idx() + idx)
+                    output.append(mesh.to_vertex_handle(mesh.next_halfedge_handle(vvoh)).idx() + idx)
+                outputs.append(output)
 
     data = {
         "depth": depth,
         "data": outputs
     }
+    # print(data)
 
     if depth <= 1:
         clear_json(output_dir)

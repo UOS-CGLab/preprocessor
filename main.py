@@ -1,7 +1,6 @@
 from src.get_patch import get_patch
 from src.get_extraordinary import get_extraordinary3, get_limit_point
 from src.subdiv_CC import subdivision3
-from src.subdiv_CC import subdivision_2
 from src.phrase import obj_to_json
 
 import openmesh as om
@@ -29,27 +28,6 @@ def get_tex_coord(file_path):
 def add_dash(output_dir):
     with open(output_dir + "/patch.txt", "a") as file:
         file.write("-\n")
-
-
-def convert_coord(mesh: om.PolyMesh, str_name: str):
-    texture_image = Image.open("./mesh_files/" + str_name + ".png")
-    texture_image = texture_image.convert('RGB')
-    width, height = texture_image.size
-    default_color = (0, 0, 0)  # Default color, e.g., black
-
-    for v in mesh.vertices():
-        tex_coord = mesh.texcoord2D(v)
-        if np.isnan(tex_coord).any() or tex_coord[0] < 0 or tex_coord[0] > 1 or tex_coord[1] < 0 or tex_coord[1] > 1:
-            color = default_color
-        else:
-            x = int(tex_coord[0] * width)
-            y = int(tex_coord[1] * height)
-            # Ensure x and y are within the image bounds
-            x = max(0, min(x, width - 1))
-            y = max(0, min(y, height - 1))
-            color = texture_image.getpixel((x, y))
-        mesh.set_point(v, np.array([color[0], color[1], color[2]]))
-
 
 if __name__ == "__main__":
     print("input file: ", end="")
@@ -79,6 +57,9 @@ if __name__ == "__main__":
 
     str_name = input_file.split("/")[-1].split(".")[0]
 
+    print("depth of subdivision: ", end="")
+    depth = int(input())
+
     output_dir = "output/" + str_name
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -87,38 +68,21 @@ if __name__ == "__main__":
         os.makedirs(output_dir)
 
     obj_to_json(input_file, output_dir + "/base.json")
-    mesh = om.read_polymesh(input_file)
-    tex_coord = get_tex_coord(input_file)
-    for h in mesh.halfedges():
-        v = mesh.to_vertex_handle(h)
-        mesh.set_texcoord2D(h, tex_coord[v.idx()])
-    for v in mesh.vertices():
-        mesh.set_texcoord2D(v, tex_coord[v.idx()])
+    mesh = om.read_polymesh(input_file, halfedge_tex_coord=True, vertex_tex_coord=True)
 
     origin_verticies = mesh.vertices().__len__()
-
-    print("depth of subdivision: ", end="")
-    depth = int(input())
-
-    # convert_coord(mesh, str_name)
-
 
     idx = 0
     for i in range(depth + 1):
         print("depth: ", i)
         get_patch(mesh, idx, i, output_dir)
 
-        if i != 0:
-            for h in mesh.halfedges():
-                v = mesh.to_vertex_handle(h)
-                mesh.set_texcoord2D(h, mesh.texcoord2D(v))
-
-        with open(output_dir + "/tex_coord.txt", "a") as file:
-            # for h in mesh.halfedges():
-            #     v = mesh.to_vertex_handle(h)
-            for v in mesh.vertices():
-                tex_coord = mesh.texcoord2D(v)
-                file.write(str(v.idx() + idx) + ", " + str(round(tex_coord[0], 4)) + ", " + str(round(tex_coord[1], 4)) + ",\n")
+        # with open(output_dir + "/tex_coord.txt", "a") as file:
+        #     # for h in mesh.halfedges():
+        #     #     v = mesh.to_vertex_handle(h)
+        #     for v in mesh.vertices():
+        #         tex_coord = mesh.texcoord2D(v)
+        #         file.write(str(v.idx() + idx) + ", " + str(round(tex_coord[0], 4)) + ", " + str(round(tex_coord[1], 4)) + ",\n")
 
         get_extraordinary3(mesh, output_dir, i)
 
@@ -138,6 +102,8 @@ if __name__ == "__main__":
 
         mesh, idx = subdivision3(mesh, idx, i, output_dir)
 
-        get_limit_point(mesh, output_dir, i)
+        get_limit_point(mesh, output_dir, i, idx)
 
         add_dash(output_dir)
+
+        # om.write_mesh('output' + str(i) + '.obj', mesh)
