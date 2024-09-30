@@ -1,3 +1,5 @@
+from math import trunc
+
 from src.get_patch import get_patch
 from src.get_extraordinary import get_extraordinary3, get_limit_point
 from src.subdiv_CC import subdivision3
@@ -6,24 +8,6 @@ from src.phrase import obj_to_json
 import openmesh as om
 import os
 import shutil
-from PIL import Image
-import numpy as np
-
-
-def get_tex_coord(file_path):
-    tex_coords = []
-
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-
-        for line in lines:
-            if line.startswith('vt '):
-                parts = line.split()
-                u = float(parts[1])
-                v = float(parts[2])
-                tex_coords.append((u, v))
-
-    return tex_coords
 
 def add_dash(output_dir):
     with open(output_dir + "/patch.txt", "a") as file:
@@ -52,6 +36,10 @@ if __name__ == "__main__":
     # input_file = "mesh_files/teapot.obj"; print(input_file)
     # input_file = "mesh_files/lamp.obj"; print(input_file)
     # input_file = "mesh_files/homer.obj"; print(input_file)
+    # input_file = "mesh_files/Grass_Block.obj"; print(input_file)
+    # input_file = "mesh_files/grass_block2.obj"; print(input_file)
+    # input_file = "mesh_files/chest.obj"; print(input_file)
+    # input_file = "mesh_files/chest2.obj"; print(input_file)
 
     #make base.json
 
@@ -72,6 +60,9 @@ if __name__ == "__main__":
 
     origin_verticies = mesh.vertices().__len__()
 
+    print("depth of subdivision: ", end="")
+    depth = int(input())
+
     idx = 0
     for i in range(depth + 1):
         print("depth: ", i)
@@ -86,24 +77,75 @@ if __name__ == "__main__":
 
         get_extraordinary3(mesh, output_dir, i)
 
-        if i != 0:
+        if i > 0:
             with open(output_dir + "/extra_ordinary" + str(i) + ".txt", "w") as file:
                 for f in mesh.faces():
                     if mesh.face_property("patched", f) is True:
                         continue
                     verts = []
+                    texcoords = []
+
                     for vert in mesh.fv(f):
                         verts.append(vert.idx() + idx)
+                        texcoord = []
+                        for voh in mesh.voh(vert):
+                            texcoord.append(mesh.texcoord2D(mesh.opposite_halfedge_handle(voh)))
+                        texcoords.append(texcoord)
+
+                    var = []
+                    for vert in mesh.fv(f):
+                        var.append(mesh.valence(vert))
+
+
+                    v0_texcoords_data = ""
+                    for texcoord in texcoords[0]:
+                        v0_texcoords_data += str(texcoord[0]) + ", " + str(texcoord[1]) + ", "
+                    v0_texcoords_data = v0_texcoords_data[:-2]
+
+                    v1_texcoords_data = ""
+                    for texcoord in texcoords[1]:
+                        v1_texcoords_data += str(texcoord[0]) + ", " + str(texcoord[1]) + ", "
+                    v1_texcoords_data = v1_texcoords_data[:-2]
+
+                    v2_texcoords_data = ""
+                    for texcoord in texcoords[2]:
+                        v2_texcoords_data += str(texcoord[0]) + ", " + str(texcoord[1]) + ", "
+                    v2_texcoords_data = v2_texcoords_data[:-2]
+
+                    v3_texcoords_data = ""
+                    for texcoord in texcoords[3]:
+                        v3_texcoords_data += str(texcoord[0]) + ", " + str(texcoord[1]) + ", "
+                    v3_texcoords_data = v3_texcoords_data[:-2]
+
+                    v0_len = str(len(texcoords[2]))
+
+
                     file.write(str(verts[0]) + ", " + str(verts[1]) + ", " + str(verts[3]) + ", "
-                               + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ",\n")
+                            + str(verts[3]) + ", " + str(verts[1]) + ", " + str(verts[2]) + ", " # check the order
+                            + v0_len + ", "
+                            + v0_texcoords_data + ", " + v1_texcoords_data + ", " + v3_texcoords_data + ", "
+                            + v3_texcoords_data + ", " + v1_texcoords_data + ", " + v2_texcoords_data + "\n")
 
         if i == depth + 1:
             break
 
         mesh, idx = subdivision3(mesh, idx, i, output_dir)
 
+        # std::string output_file = output_dir + "/subdivision" + std::to_string(i) + ".obj";
+        om.write_mesh(
+            filename=output_dir + "/subdivision" + str(i) + ".obj",
+            mesh=mesh,
+        )
+
         get_limit_point(mesh, output_dir, i, idx)
 
         add_dash(output_dir)
 
-        # om.write_mesh('output' + str(i) + '.obj', mesh)
+        #write mesh with texture
+        # filename = "subdiv_" + str(i) + ".obj"
+        #
+        # om.write_mesh(
+        #     filename=filename,
+        #     mesh=mesh,
+        #     halfedge_tex_coord = True,
+        # )

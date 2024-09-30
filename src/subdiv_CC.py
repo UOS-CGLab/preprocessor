@@ -1,7 +1,6 @@
 import openmesh as om
 import numpy as np
 from src.to_json import to_json
-from src.to_json import to_json2
 
 def compute_CC_vertex(mesh, v):
     k = mesh.valence(v)
@@ -14,7 +13,6 @@ def compute_CC_vertex(mesh, v):
         p = p + (alpha / k) * mesh.point(mesh.to_vertex_handle(mesh.next_halfedge_handle(h)))
     return p
 
-
 def compute_CC_face(mesh, f):
     idx_set = []
     p = np.array([0, 0, 0])
@@ -23,7 +21,6 @@ def compute_CC_face(mesh, f):
         idx_set.append(v.idx())
     p = p / mesh.valence(f)
     return p
-
 
 def compute_CC_edge(mesh, e):
     p = np.array([0, 0, 0])
@@ -46,8 +43,7 @@ def compute_CC_edge(mesh, e):
     return p
 
 
-def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) -> (om.PolyMesh, int):
-
+def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) -> tuple[om.PolyMesh, int]:
     f_offsets = []
     f_valances = []
     f_indices = []
@@ -66,11 +62,12 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
     idx = 0
 
     for f in mesh.faces():
-        if mesh.face_property("visited") is None:
+        if mesh.face_property("visited", f) is None:
             continue
         val = 0
         # ----- subdivision part -------
-        p = compute_CC_face(mesh, f) #p = np.array([0, 0, 0])
+        # p = np.array([0, 0, 0])
+        p = compute_CC_face(mesh, f)
         mesh.set_face_property("id", f, idx)
         mesh.set_face_property("position", f, p)
         mesh_next.add_vertex(p)
@@ -80,7 +77,6 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
         for vert in mesh.fv(f):
             val += 1
             f_data.append(vert.idx() + prev_idx)
-            # f_data.append(vert.idx() + prev_idx)
 
         f_offsets.append(offset)
         f_valances.append(val)
@@ -100,12 +96,12 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
         for e in mesh.fe(f):
             mesh.set_edge_property("valid", e, True)
 
-
     for e in mesh.edges():
         if mesh.edge_property("valid", e) is None:
             continue
         # ---- subdivision part ----
-        p = compute_CC_edge(mesh, e)#p = np.array([0, 0, 0])
+        # p = np.array([0, 0, 0])
+        p = compute_CC_edge(mesh, e)
         mesh.set_edge_property("id", e, idx)
         mesh.set_edge_property("position", e, p)
         mesh_next.add_vertex(p)
@@ -132,7 +128,8 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
         if mesh.vertex_property("valid", v) is None:
             continue
         # ---- subdivision part ----
-        p = compute_CC_vertex(mesh, v)# p = np.array([0, 0, 0])
+        # p = np.array([0, 0, 0])
+        p = compute_CC_vertex(mesh, v)
         mesh.set_vertex_property("id", v, idx)
         mesh.set_vertex_property("position", v, p)
         mesh_next.add_vertex(p)
@@ -172,7 +169,6 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
 
         mid_point = mid_point / mesh.valence(f)
         v0_tex_coord = mid_point
-
         for h in mesh.fh(f):
             v1 = mesh.edge_property("id", mesh.edge_handle(h))
             v2 = mesh.vertex_property("id", mesh.to_vertex_handle(h))
@@ -196,7 +192,6 @@ def subdivision3(mesh: om.PolyMesh, prev_idx: int, depth: int, output_dir: str) 
                 texcoord = np.array(new_tex_coords[i])
                 mesh_next.set_texcoord2D(e, texcoord)
 
-            # check = [mesh_next.texcoord2D(e) in mesh_next.fe(last_face_handle)]
 
             if mesh.face_property("patched", f) is True:
                 mesh_next.set_face_property("patched", mesh_next.face_handle(mesh_next.faces().__len__() - 1), True)

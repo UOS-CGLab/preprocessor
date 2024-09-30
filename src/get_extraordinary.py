@@ -103,6 +103,7 @@ def get_limit_point(mesh: om.PolyMesh, output_dir: str, depth: int, idx: int) ->
 
 def get_extraordinary3(mesh: om.PolyMesh, output_dir: str, depth: int) -> om.PolyMesh:
     idx = 0
+
     for f in mesh.faces():
         if mesh.valence(f) != 4:
             for v in mesh.fv(f):
@@ -138,22 +139,5 @@ def get_extraordinary3(mesh: om.PolyMesh, output_dir: str, depth: int) -> om.Pol
         if mesh.vertex_property("visited3", v):
             for f in mesh.vf(v):
                 idx = add_face3(mesh, f, idx)
+
     return mesh
-
-def get_extraordinary_2(mesh: om.PolyMesh, depth: int) -> (om.PolyMesh, []):
-    new_mesh = om.PolyMesh()
-
-    face_index = []
-    edge_index = []
-    vert_index = []
-
-    for faces in mesh.faces():
-        verts = []
-        for v in mesh.fv(faces):
-            verts.append(v.idx())
-            new_mesh.add_vertex(mesh.point(v))
-            new_mesh.set_vertex_property("prev_idx", new_mesh.vertex_handle(v.idx()), v.idx())
-            vert_index.append(v.idx())
-        new_mesh.add
-    return new_mesh
-
