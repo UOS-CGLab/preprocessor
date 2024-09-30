@@ -1,5 +1,3 @@
-from math import trunc
-
 from src.get_patch import get_patch
 from src.get_extraordinary import get_extraordinary3, get_limit_point
 from src.subdiv_CC import subdivision3
@@ -40,13 +38,9 @@ if __name__ == "__main__":
     # input_file = "mesh_files/grass_block2.obj"; print(input_file)
     # input_file = "mesh_files/chest.obj"; print(input_file)
     # input_file = "mesh_files/chest2.obj"; print(input_file)
-
     #make base.json
 
     str_name = input_file.split("/")[-1].split(".")[0]
-
-    print("depth of subdivision: ", end="")
-    depth = int(input())
 
     output_dir = "output/" + str_name
     if not os.path.exists(output_dir):

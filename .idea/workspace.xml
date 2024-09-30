@@ -5,22 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9627ee7-1d62-44ca-bacd-5432246b9e7e" name="Changes" comment="_">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mesh_files/monsterfrog.obj" beforeDir="false" afterPath="$PROJECT_DIR$/mesh_files/monsterfrog.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/extra_ordinary7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/patch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Car/topology.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/extra_ordinary7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/patch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/bigguy/topology.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/cone/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/homer/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/monsterfrog/extra_ordinary1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/monsterfrog/limit_point.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/monsterfrog/limit_point.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/monsterfrog/patch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/monsterfrog/patch.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/monsterfrog/tex_coord.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output/monsterfrog/topology.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/monsterfrog/topology.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_extraordinary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_extraordinary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subdiv_CC.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/subdiv_CC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture_coord.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/extra_ordinary4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/limit_point.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/patch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/suzanne/topology.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/extra_ordinary1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/extra_ordinary2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/extra_ordinary3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/extra_ordinary4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/patch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/teapot/topology.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +71,19 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SpoofUoS"
+  }
+}]]></component>
   <component name="GitLabMergeRequestsSettings">{}</component>
-  <component name="GithubPullRequestsUISettings">{}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/UOS-CGLab/preprocessor.git",
+    "accountId": "8a17a276-fc4c-41c2-8d06-a705bc192ae5"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -53,27 +93,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.get_patch.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.phrase.executor": "Run",
-    "Python.phraze.executor": "Run",
-    "Python.teat.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/seobeenJang/Downloads/pythonProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.get_patch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.phrase.executor&quot;: &quot;Run&quot;,
+    &quot;Python.phraze.executor&quot;: &quot;Run&quot;,
+    &quot;Python.teat.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/seobeenJang/Downloads/pythonProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mesh_files" />
@@ -164,8 +204,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
-        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -252,6 +292,7 @@
       <workItem from="1725084809740" duration="40000" />
       <workItem from="1725085627030" duration="844000" />
       <workItem from="1725196149151" duration="64000" />
+      <workItem from="1727693721472" duration="515000" />
     </task>
     <task id="LOCAL-00001" summary="_">
       <option name="closed" value="true" />
@@ -423,5 +464,6 @@
     <SUITE FILE_PATH="coverage/pythonProject$get_patch.coverage" NAME="get_patch Coverage Results" MODIFIED="1711778362858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/pythonProject$phraze.coverage" NAME="phraze Coverage Results" MODIFIED="1718182949363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$teat.coverage" NAME="teat Coverage Results" MODIFIED="1708427519683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/preprocessor$main.coverage" NAME="main Coverage Results" MODIFIED="1727693815148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
